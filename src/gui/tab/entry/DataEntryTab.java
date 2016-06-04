@@ -31,6 +31,8 @@ public class DataEntryTab extends AbstractTab {
 	private static final String NODES_FILE_NAME = "data_entry_nodes.txt";
 	private static final String ADD_LABEL = "Add Entry";
 	private static final String ADD_ID = "AddEntry";
+	private static final String CLEAR_LABEL = "Clear Entries";
+	private static final String CLEAR_ID = "Clear";
 	private static final String DELIMITER = "\n";
 	private static final String PACKAGE = "gui.tab.entry.nodes.%s";
 	
@@ -48,7 +50,8 @@ public class DataEntryTab extends AbstractTab {
 	protected void populate() {
 		pane = new VBox();
 		pane.getChildren().add(controls());
-		pane.getChildren().add(GUIUtils.makeColumn(GUIUtils.makeButton(ADD_LABEL, ADD_ID, this.buttonEvent)));
+		pane.getChildren().add(GUIUtils.makeRow(GUIUtils.makeButton(ADD_LABEL, ADD_ID, this.buttonEvent),
+												GUIUtils.makeButton(CLEAR_LABEL, CLEAR_ID, this.buttonEvent)));
 	}
 	
 	/**

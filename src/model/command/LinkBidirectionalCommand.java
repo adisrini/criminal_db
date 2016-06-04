@@ -7,6 +7,12 @@ import com.cinchapi.concourse.Link;
 
 import model.ConcourseManager;
 
+/**
+ * The command to link two records bidirectionally.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public class LinkBidirectionalCommand extends LinkCommand {
 
 	public LinkBidirectionalCommand(Collection<?> inputs) {

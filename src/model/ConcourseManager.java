@@ -6,8 +6,17 @@ import java.util.Collection;
 import com.cinchapi.concourse.Concourse;
 import com.cinchapi.concourse.thrift.Operator;
 
+/**
+ * The manager for the ConcourseDB. The manager is designed as a Singleton since no two instances of the
+ * database can ever exist.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public class ConcourseManager {
 
+	private static final String KEY = "captured";
+	
 	private Concourse concourse;
 	
 	private ConcourseManager() {
@@ -26,16 +35,19 @@ public class ConcourseManager {
 		return concourse;
 	}
 
+	/**
+	 * Returns a collection of CrimeRecord objects representing all records in the database.
+	 * @return
+	 */
 	public Collection<CrimeRecord> getRecords() {
 		Collection<CrimeRecord> records = new ArrayList<>();
 		
-		//adds all records
-		concourse.find("captured", Operator.EQUALS, true).stream().forEach(a -> {
+		concourse.find(KEY, Operator.EQUALS, true).stream().forEach(a -> {
 			if(extractRecord(a) != null) {
 				records.add(extractRecord(a));
 			}
 		});
-		concourse.find("captured", Operator.EQUALS, false).stream().forEach(a -> {
+		concourse.find(KEY, Operator.EQUALS, false).stream().forEach(a -> {
 			if(extractRecord(a) != null) {
 				records.add(extractRecord(a));
 			}
@@ -44,6 +56,11 @@ public class ConcourseManager {
 		return records;
 	}
 	
+	/**
+	 * Extracts a record given its record number.
+	 * @param number
+	 * @return
+	 */
 	private CrimeRecord extractRecord(long number) {
 		String perp_name, victim_name, offense, location; boolean captured;
 		perp_name = concourse.get("perp_name", number);

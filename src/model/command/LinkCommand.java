@@ -9,6 +9,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import model.CrimeRecord;
 
+/**
+ * An abstract linkage command that is extended to specify directionality.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public abstract class LinkCommand implements Command {
 
 	private Collection<?> inputs;
@@ -20,6 +26,9 @@ public abstract class LinkCommand implements Command {
 		this.inputs = inputs;
 	}
 
+	/**
+	 * Parses the input nodes and links the two records together.
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void execute() {
@@ -38,6 +47,11 @@ public abstract class LinkCommand implements Command {
 		}
 	}
 	
+	/**
+	 * Specifies the method of linkage (unidirectional or bidirectional)
+	 * @param r1
+	 * @param r2
+	 */
 	protected abstract void makeLink(long r1, long r2);
 	
 	private void showMessage(AlertType type, String message) {

@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * A container for information about each record in the database.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public class CrimeRecord {
 	
 	private long record_number;
@@ -26,6 +32,9 @@ public class CrimeRecord {
 		return this.perpetrator;
 	}
 	
+	/**
+	 * Displays the object nicely to the user.
+	 */
 	@Override
 	public String toString() {
 		String ret =  this.perpetrator + " vs. " + this.victim + ", charged for " + this.offense + " in " + this.location + " and ";
