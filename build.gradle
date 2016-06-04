@@ -1,0 +1,7 @@
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.cinchapi:concourse-driver-java:0.5.0+'
+}

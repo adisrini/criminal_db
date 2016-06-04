@@ -1,0 +1,5 @@
+EntryPerpField
+EntryVictimField
+EntryTypeCB
+EntryLocationCB
+EntryCapturedCheck
