@@ -4,15 +4,24 @@ import gui.tab.DBComboBox;
 import gui.tab.DBNode;
 import model.CrimeRecord;
 
+/**
+ * A combobox holding records of crimes entered into the database.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public class FirstCrimeCB extends DBComboBox<CrimeRecord> implements DBNode {
 
+	private static final String LABEL = "First Crime";
+	private static final String KEY = "first%";
+	
 	public FirstCrimeCB() {
-		super("First Crime");
+		super(LABEL);
 	}
 
 	@Override
 	public String read() {
-		return "first%" + cbox.getValue();
+		return KEY + cbox.getValue();
 	}
 
 }

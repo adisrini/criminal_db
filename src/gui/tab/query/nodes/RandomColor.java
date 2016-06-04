@@ -2,6 +2,12 @@ package gui.tab.query.nodes;
 
 import java.util.Random;
 
+/**
+ * A class that returns a random color from a predetermined palette.
+ * 
+ * @author adityasrinivasan
+ *
+ */
 public class RandomColor {
 
 	private String[] myColors;

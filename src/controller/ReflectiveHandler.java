@@ -7,7 +7,11 @@ import model.command.Command;
 import util.DBException;
 
 /**
- * This class uses reflection in order to provide functionality to GUI buttons.
+ * This class uses reflection in order to provide functionality to GUI buttons. The buttons are provided with
+ * IDs, and passed here by the controller. Reflection is used to instantiate the command that matches the
+ * command specified by the button's ID. This maintains extensibility and flexibility, since adding functionality
+ * to buttons requires creation of new classes as opposed to editing existing files.
+ * 
  * @author adityasrinivasan
  *
  */
